@@ -1,0 +1,37 @@
+﻿@using System.Net.Http
+@inject HttpClient Http
+@page "/recipes"
+
+<h3>Recipes</h3>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipeName in recipeNames)
+        {
+            <tr>
+                <td>@recipeName</td>
+            </tr>            
+        }
+    </tbody>
+</table>
+
+@code {
+    string[] recipeNames = new string[] { };
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetRecipes();
+        await base.OnInitializedAsync();
+    }
+
+    public async Task GetRecipes()
+    {
+        var baseUrl = "https://localhost:44381";
+        recipeNames = await Http.GetFromJsonAsync<string[]>(baseUrl + "/api/recipes");
+    }
+}
