@@ -1,6 +1,5 @@
-﻿@using System.Net.Http
+﻿@page "/recipes"
 @inject HttpClient Http
-@page "/recipes"
 
 <h3>Recipes</h3>
 
@@ -8,20 +7,23 @@
     <thead>
         <tr>
             <th>Name</th>
+            <th>Created date</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var recipeName in recipeNames)
+        @foreach (var recipe in recipes)
         {
             <tr>
-                <td>@recipeName</td>
-            </tr>            
+                <td>@recipe.Name</td>
+                <td>@recipe.Created</td>
+            </tr>
+
         }
     </tbody>
 </table>
 
 @code {
-    string[] recipeNames = new string[] { };
+    RecipeModel[] recipes = new RecipeModel[] { };
 
     protected override async Task OnInitializedAsync()
     {
@@ -29,9 +31,10 @@
         await base.OnInitializedAsync();
     }
 
+    //TODO: move this to service
     public async Task GetRecipes()
     {
         var baseUrl = "https://localhost:44381";
-        recipeNames = await Http.GetFromJsonAsync<string[]>(baseUrl + "/api/recipes");
+        recipes = await Http.GetFromJsonAsync<RecipeModel[]>(baseUrl + "/api/recipes");
     }
 }
