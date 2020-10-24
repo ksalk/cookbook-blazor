@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using CookBook.Common.Models;
+using CookBook.Application.Recipes.Queries.GetRecipes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,14 +27,9 @@ namespace CookBook.API.Controllers
 
         // GET: api/<RecipesController>
         [HttpGet]
-        public IEnumerable<RecipeModel> Get()
+        public async Task<IEnumerable<RecipeDto>> Get()
         {
-            var rand = new Random();
-            var schabowy = new RecipeModel() { Name = "Schabowy", Created = DateTime.Now.AddMinutes(-rand.Next(10000)) };
-            var bigos = new RecipeModel() { Name = "Bigos", Created = DateTime.Now.AddMinutes(-rand.Next(10000)) };
-            var shakshuka = new RecipeModel() { Name = "Shakshuka", Created = DateTime.Now.AddMinutes(-rand.Next(10000)) };
-            var butterChicken = new RecipeModel() { Name = "Butter chicken", Created = DateTime.Now.AddMinutes(-rand.Next(10000)) };
-            return new RecipeModel[] { schabowy, bigos, shakshuka, butterChicken };
+            return await _mediator.Send(new GetRecipesQuery());
         }
 
         // GET api/<RecipesController>/5

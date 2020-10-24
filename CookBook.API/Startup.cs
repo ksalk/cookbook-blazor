@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using CookBook.Application.Recipes.Queries.GetRecipes;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +30,7 @@ namespace CookBook.API
         {
             services.AddCors();
             services.AddControllers();
+            services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(GetRecipesQuery).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

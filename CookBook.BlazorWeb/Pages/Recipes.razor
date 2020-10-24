@@ -1,4 +1,5 @@
 ﻿@page "/recipes"
+@using Application.Recipes.Queries.GetRecipes
 @inject HttpClient Http
 
 <h3>Recipes</h3>
@@ -23,7 +24,7 @@
 </table>
 
 @code {
-    RecipeModel[] recipes = new RecipeModel[] { };
+    RecipeDto[] recipes = new RecipeDto[] { };
 
     protected override async Task OnInitializedAsync()
     {
@@ -35,6 +36,6 @@
     public async Task GetRecipes()
     {
         var baseUrl = "https://localhost:44381";
-        recipes = await Http.GetFromJsonAsync<RecipeModel[]>(baseUrl + "/api/recipes");
+        recipes = await Http.GetFromJsonAsync<RecipeDto[]>(baseUrl + "/api/recipes");
     }
 }

@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CookBook.Common.Models
+namespace CookBook.Application.Recipes.Queries.GetRecipes
 {
-    public class RecipeModel
+    //TODO: possibly move Dtos to Common project
+    public class RecipeDto
     {
         public int Id { get; set; }
 

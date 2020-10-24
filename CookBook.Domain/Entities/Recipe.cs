@@ -10,7 +10,7 @@ namespace CookBook.Core.Entities
 
         public string Description { get; private set; }
 
-        public IEnumerable<RecipeIngredient> Ingredients { get; private set; }
+        public IEnumerable<Ingredient> Ingredients { get; private set; }
 
         public IEnumerable<File> Images { get; private set; }
 
@@ -20,10 +20,12 @@ namespace CookBook.Core.Entities
         {
             Name = name;
             Description = description;
+            Ingredients = new List<Ingredient>();
+            Images = new List<File>();
             Created = DateTime.Now;
         }
 
-        public RecipeIngredient AddRecipeIngredient()
+        public Ingredient AddIngredient()
         {
             throw new NotImplementedException();
         }
