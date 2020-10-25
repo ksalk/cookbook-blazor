@@ -8,7 +8,7 @@ namespace CookBook.Core.Entities
 {
     public class Ingredient : Entity
     {
-        public IgredientName Name { get; set; }
+        public IngredientName Name { get; set; }
 
         public string Amount { get; set; }
     }

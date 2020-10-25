@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookBook.Domain", "CookBook
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookBook.Application", "CookBook.Application\CookBook.Application.csproj", "{2F904C1F-4619-49CC-9B33-83BFB45CF6D0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CookBook.Infrastructure", "CookBook.Infrastructure\CookBook.Infrastructure.csproj", "{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,18 @@ Global
 		{2F904C1F-4619-49CC-9B33-83BFB45CF6D0}.Release|x64.Build.0 = Release|Any CPU
 		{2F904C1F-4619-49CC-9B33-83BFB45CF6D0}.Release|x86.ActiveCfg = Release|Any CPU
 		{2F904C1F-4619-49CC-9B33-83BFB45CF6D0}.Release|x86.Build.0 = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|x64.Build.0 = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Debug|x86.Build.0 = Debug|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|x64.ActiveCfg = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|x64.Build.0 = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|x86.ActiveCfg = Release|Any CPU
+		{470C1688-9AD9-4FDF-AD7C-ED7960D4D1F8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

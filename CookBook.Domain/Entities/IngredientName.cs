@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CookBook.Domain.Entities
 {
-    public class IgredientName : ValueObject
+    public class IngredientName : ValueObject
     {
         public string Value { get; set; }
 
