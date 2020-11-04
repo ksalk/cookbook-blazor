@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CookBook.Application.Recipes.Commands.AddRecipe;
 using CookBook.Application.Recipes.Queries.GetRecipes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -41,8 +42,9 @@ namespace CookBook.API.Controllers
 
         // POST api/<RecipesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<CreatedRecipeDto> Post([FromBody] AddRecipeCommand command)
         {
+            return await _mediator.Send(command);
         }
 
         // PUT api/<RecipesController>/5

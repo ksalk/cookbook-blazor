@@ -1,14 +1,17 @@
-﻿using CookBook.Core.Entities;
+﻿using CookBook.Application.Common.Interfaces;
+using CookBook.Core.Entities;
 using CookBook.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CookBook.Infrastructure.Persistence
 {
-    public class CookBookDbContext : DbContext
+    public class CookBookDbContext : DbContext, ICookBookDbContext
     {
         public CookBookDbContext(DbContextOptions<CookBookDbContext> options)  : base(options)
         {
@@ -18,6 +21,11 @@ namespace CookBook.Infrastructure.Persistence
         public DbSet<Recipe> Recipes { get; set; }
 
         public DbSet<Ingredient> Ingredients { get; set; }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+        {
+            return await base.SaveChangesAsync(cancellationToken);
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

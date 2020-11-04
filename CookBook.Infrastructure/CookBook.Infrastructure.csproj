@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CookBook.Application\CookBook.Application.csproj" />
     <ProjectReference Include="..\CookBook.Domain\CookBook.Domain.csproj" />
   </ItemGroup>
 

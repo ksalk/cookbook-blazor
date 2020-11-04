@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using CookBook.Application.Common.Interfaces;
 using CookBook.Application.Recipes.Queries.GetRecipes;
 using CookBook.Infrastructure.Persistence;
 using MediatR;
@@ -35,6 +36,7 @@ namespace CookBook.API
             services.AddMediatR(Assembly.GetExecutingAssembly(), typeof(GetRecipesQuery).Assembly);
             services.AddDbContext<CookBookDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CookBookDB"), 
                 actions => actions.MigrationsAssembly(typeof(CookBookDbContext).Assembly.FullName)));
+            services.AddScoped<ICookBookDbContext>(provider => provider.GetService<CookBookDbContext>());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
