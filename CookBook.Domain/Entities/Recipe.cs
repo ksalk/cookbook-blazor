@@ -1,6 +1,8 @@
 ﻿using CookBook.Core.Entities.Base;
+using CookBook.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CookBook.Core.Entities
 {
@@ -10,7 +12,7 @@ namespace CookBook.Core.Entities
 
         public string Description { get; private set; }
 
-        public IEnumerable<Ingredient> Ingredients { get; private set; }
+        public List<Ingredient> Ingredients { get; private set; }
 
         public DateTime Created { get; private set; }
 
@@ -22,9 +24,14 @@ namespace CookBook.Core.Entities
             Created = DateTime.Now;
         }
 
-        public Ingredient AddIngredient()
+        public Ingredient AddIngredient(string name, string amount)
         {
-            throw new NotImplementedException();
+            var newIngredient = new Ingredient(name, amount);
+            if (Ingredients.Any(i => i.Name == newIngredient.Name))
+                throw new ArgumentException($"Recipe already has ingredient with name: {newIngredient.Name.Value}.");
+
+            Ingredients.Add(newIngredient);
+            return newIngredient;
         }
     }
 }

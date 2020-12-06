@@ -13,5 +13,13 @@ namespace CookBook.Domain.Entities
         {
             yield return Value;
         }
+
+        public IngredientName(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException($"Ingredient name cannot be empty.");
+
+            Value = value;
+        }
     }
 }

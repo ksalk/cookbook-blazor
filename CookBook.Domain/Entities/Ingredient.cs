@@ -11,5 +11,13 @@ namespace CookBook.Core.Entities
         public IngredientName Name { get; set; }
 
         public string Amount { get; set; }
+
+        private Ingredient() { }
+
+        public Ingredient(string name, string amount)
+        {
+            Name = new IngredientName(name);
+            Amount = amount;
+        }
     }
 }

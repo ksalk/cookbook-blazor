@@ -20,8 +20,6 @@ namespace CookBook.Infrastructure.Persistence
 
         public DbSet<Recipe> Recipes { get; set; }
 
-        public DbSet<Ingredient> Ingredients { get; set; }
-
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
             return await base.SaveChangesAsync(cancellationToken);

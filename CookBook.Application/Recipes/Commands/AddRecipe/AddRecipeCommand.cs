@@ -1,6 +1,7 @@
 ﻿using CookBook.Application.Common.Interfaces;
 using CookBook.Core.Entities;
 using MediatR;
+using System.ComponentModel.DataAnnotations;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,8 +9,10 @@ namespace CookBook.Application.Recipes.Commands.AddRecipe
 {
     public class AddRecipeCommand : IRequest<CreatedRecipeDto>
     {
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Description { get; set; }
     }
 

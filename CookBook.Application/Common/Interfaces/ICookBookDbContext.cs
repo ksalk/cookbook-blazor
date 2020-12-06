@@ -12,8 +12,6 @@ namespace CookBook.Application.Common.Interfaces
     {
         DbSet<Recipe> Recipes { get; set; }
 
-        DbSet<Ingredient> Ingredients { get; set; }
-
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken());
     }
 }

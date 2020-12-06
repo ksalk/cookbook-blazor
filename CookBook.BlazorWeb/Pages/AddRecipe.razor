@@ -1,0 +1,36 @@
+﻿@page "/recipes/add"
+@using Application.Recipes.Commands.AddRecipe
+@inject HttpClient Http
+
+Dodaj przepis
+
+<EditForm Model="@addRecipeCommand" OnValidSubmit="@HandleAddRecipe">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <p>
+        <label>
+            Nazwa:
+            <InputText @bind-Value="addRecipeCommand.Name" />
+        </label>
+    </p>
+
+    <p>
+        <label>
+            Przepis:
+            <InputTextArea @bind-Value="addRecipeCommand.Description" />
+        </label>
+    </p>    
+
+    <button type="submit">Dodaj</button>
+</EditForm>
+
+@code {
+    private AddRecipeCommand addRecipeCommand = new AddRecipeCommand();
+
+    private async Task HandleAddRecipe()
+    {
+        var baseUrl = "https://localhost:44381";
+        var createdRecipe = await Http.PostAsJsonAsync<AddRecipeCommand>(baseUrl + "/api/recipes", addRecipeCommand);
+    }
+}
